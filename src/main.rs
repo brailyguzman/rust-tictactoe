@@ -110,13 +110,13 @@ fn main() {
         clear_console();
         game.print_table();
 
-        print!("Enter x: ");
+        print!("Enter Row: ");
         io::stdout().flush().unwrap();
         let mut input = String::new();
         std::io::stdin().read_line(&mut input).unwrap();
         x = input.trim().parse().unwrap();
 
-        print!("Enter y: ");
+        print!("Enter Column: ");
         io::stdout().flush().unwrap();
         let mut input = String::new();
         std::io::stdin().read_line(&mut input).unwrap();
