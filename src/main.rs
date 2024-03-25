@@ -141,14 +141,6 @@ fn main() {
         let user_winner = game.check_user_winner();
         let draw = game.check_draw();
 
-        if draw {
-            clear_console();
-            game.print_table();
-            println!("Draw!");
-            sleep(std::time::Duration::from_secs(2));
-            break;
-        }
-
         if user_winner {
             clear_console();
             game.print_table();
@@ -157,10 +149,6 @@ fn main() {
             break;
         }
 
-        game.computer_turn();
-        let computer_winner = game.check_computer_winner();
-        let draw = game.check_draw();
-
         if draw {
             clear_console();
             game.print_table();
@@ -169,10 +157,22 @@ fn main() {
             break;
         }
 
+        game.computer_turn();
+        let computer_winner = game.check_computer_winner();
+        let draw = game.check_draw();
+
         if computer_winner {
             clear_console();
             game.print_table();
             println!("Computer wins!");
+            sleep(std::time::Duration::from_secs(2));
+            break;
+        }
+
+        if draw {
+            clear_console();
+            game.print_table();
+            println!("Draw!");
             sleep(std::time::Duration::from_secs(2));
             break;
         }
